@@ -119,7 +119,7 @@ export default {
       })
       .catch( error => {
         this.showSpinner = false;
-        this.message.push({
+        this.messages.push({
           type:'error',
           text: error.message
         });
