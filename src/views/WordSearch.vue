@@ -36,7 +36,7 @@
         </transition-group>
       </ul>
 
-        <div v-else-if="results && results.length == 0" class="no-results">
+        <div v-else-if="results && results.length === 0" class="no-results">
           <h2>No Words Found</h2>
           <p>Please adjust your search to find more words.</p>
         </div>
@@ -110,7 +110,7 @@ export default {
         params: {
           ml: this.phrase,
           sl: this.soundsLike,
-          sp: `${this.startLetter}*${this.endLetter}`
+          sp: this.startLetter === '' && this.endLetter ==='' ? '' : `${this.startLetter}*${this.endLetter}`
         }
       })
       .then( response => {
